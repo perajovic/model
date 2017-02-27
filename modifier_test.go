@@ -1,16 +1,13 @@
 package model_fields
 
 import (
-	"os"
 	"testing"
 
 	"github.com/satori/go.uuid"
 )
 
-var modifier *Modifier
-
-func TestMain(m *testing.M) {
-	modifier = NewModifier(
+func createModifier() *Modifier {
+	return NewModifier(
 		uuid.NewV4(),
 		"John",
 		"Doe",
@@ -18,13 +15,11 @@ func TestMain(m *testing.M) {
 		"user",
 		false,
 	)
-
-	code := m.Run()
-
-	os.Exit(code)
 }
 
 func TestModifierIsCreated(t *testing.T) {
+	modifier := createModifier()
+
 	if len(modifier.Uuid.Bytes()) != 16 {
 		t.Errorf("Uuid is incorrect, actual is %d; expected %d", len(modifier.Uuid.Bytes()), 16)
 	}
@@ -51,6 +46,8 @@ func TestModifierIsCreated(t *testing.T) {
 }
 
 func TestModifierIsMarkedAsDeleted(t *testing.T) {
+	modifier := createModifier()
+
 	modifier.MarkAsDeleted()
 
 	if modifier.Deleted == false {
@@ -59,6 +56,8 @@ func TestModifierIsMarkedAsDeleted(t *testing.T) {
 }
 
 func TestModifierIsUpdated(t *testing.T) {
+	modifier := createModifier()
+
 	modifier.Update("John1", "Doe1", "john1@doe.com")
 
 	if modifier.Firstname != "John1" {
