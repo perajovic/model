@@ -1,0 +1,3 @@
+package: github.com/perajovic/model_fields
+import:
+- package: github.com/satori/go.uuid
