@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func createNewStatus() *Status {
+func createStatus() *Status {
 	s, _ := NewStatus("active", []string{"pending", "active", "inactive"})
 
 	return s
@@ -22,16 +22,16 @@ func TestInvalidConstructorStatusValue(t *testing.T) {
 	}
 }
 
-func TestStatusIsValid(t *testing.T) {
-	s := createNewStatus()
+func TestValidStatus(t *testing.T) {
+	s := createStatus()
 
 	if s.IsValid("active") == false {
 		t.Errorf("Value is incorrect, actual is %v; expected %v", s.IsValid("active"), true)
 	}
 }
 
-func TestStatusIsNotValid(t *testing.T) {
-	s := createNewStatus()
+func TestInvalidStatus(t *testing.T) {
+	s := createStatus()
 
 	if s.IsValid("invalid") == true {
 		t.Errorf("Value is incorrect, actual is %v; expected %v", s.IsValid("invalid"), false)
