@@ -4,12 +4,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/perajovic/model"
 	"github.com/satori/go.uuid"
 )
 
 func createCreated() *Created {
 	return NewCreated(
-		NewModifier(
+		model.NewModifier(
 			uuid.NewV4(),
 			"John",
 			"Doe",
