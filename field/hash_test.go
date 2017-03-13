@@ -1,4 +1,4 @@
-package model_fields
+package field
 
 import (
 	"testing"

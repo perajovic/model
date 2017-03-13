@@ -1,4 +1,4 @@
-package model_fields
+package field
 
 import (
 	"testing"
@@ -7,8 +7,8 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-func createUpdated() *Updated {
-	return NewUpdated(
+func createCreated() *Created {
+	return NewCreated(
 		NewModifier(
 			uuid.NewV4(),
 			"John",
@@ -21,8 +21,8 @@ func createUpdated() *Updated {
 	)
 }
 
-func TestUpdatedIsCreated(t *testing.T) {
-	u := createUpdated()
+func TestCreatedIsCreated(t *testing.T) {
+	c := createCreated()
 
-	t.Logf("Field %T is created.", u)
+	t.Logf("Field %T is created.", c)
 }
