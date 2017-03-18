@@ -37,3 +37,23 @@ func TestInvalidStatus(t *testing.T) {
 		t.Errorf("Value is incorrect, actual is %v; expected %v", s.IsValid("invalid"), false)
 	}
 }
+
+func TestStatusIsNotChanged(t *testing.T) {
+	s := createStatus()
+
+	err := s.Change("invalid")
+
+	if err.Error() != "Invalid status value provided." {
+		t.Errorf("Value is incorrect, actual is %v; expected %v", err.Error(), "Invalid status value provided.")
+	}
+}
+
+func TestStatusIsChanged(t *testing.T) {
+	s := createStatus()
+
+	err := s.Change("pending")
+
+	if err != nil {
+		t.Errorf("Value is incorrect, actual is %v; expected %v", err, nil)
+	}
+}

@@ -31,3 +31,14 @@ func (s *Status) IsValid(status string) bool {
 
 	return false
 }
+
+// Change set new underlying value of status or return error if that value is not valid.
+func (s *Status) Change(status string) error {
+	s.Value = status
+
+	if s.IsValid(status) == false {
+		return ErrInvalidStatus
+	}
+
+	return nil
+}
