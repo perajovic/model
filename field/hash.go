@@ -4,6 +4,8 @@ import (
 	"github.com/satori/go.uuid"
 )
 
+const DefaultHashIterations = 1
+
 // Hash field which can be embedded into high level models.
 // It represents some random unique value.
 type Hash struct {
