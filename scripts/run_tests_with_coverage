@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+go test github.com/perajovic/model -v -cover -coverprofile=$PWD/logs/model_c.out && go tool cover -html=$PWD/logs/model_c.out -o $PWD/logs/model_coverage.html
+go test github.com/perajovic/model/field -v -cover -coverprofile=$PWD/logs/field_c.out && go tool cover -html=$PWD/logs/field_c.out -o $PWD/logs/field_coverage.html
