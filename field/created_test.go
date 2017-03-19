@@ -23,7 +23,5 @@ func createCreated() *Created {
 }
 
 func TestCreatedIsCreated(t *testing.T) {
-	c := createCreated()
-
-	t.Logf("Field %T is created.", c)
+	createCreated()
 }
